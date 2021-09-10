@@ -57,10 +57,10 @@ namespace RockPaperScissors
                 }
 
                 int j = 0;
-                
                 while (winnerMoves.Count != winnerMoves.Capacity)
                 {
                     winnerMoves.Add(_availableMoves[j]);
+                    j++;
                 }
             }
             else
