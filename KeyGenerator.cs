@@ -13,7 +13,7 @@ namespace RockPaperScissors
         public KeyGenerator()
         {
             _generator = RandomNumberGenerator.Create();
-            _key = new byte[128];
+            _key = new byte[16];
         }
 
         /// <summary>
