@@ -9,7 +9,7 @@ namespace RockPaperScissors
     /// </summary>
     public class Encryptor
     {
-        private HMACSHA256 _encryptor;
+        private HMAC _encryptor;
 
         /// <summary>
         /// A constructor for the encryptor
@@ -27,7 +27,7 @@ namespace RockPaperScissors
         /// <returns>The computed hash code in string</returns>
         public string GenerateHash(string message)
         {
-            return BitConverter.ToString(_encryptor.ComputeHash(GetBytes(message))).Replace("-", string.Empty).ToLower();
+            return BitConverter.ToString(_encryptor.ComputeHash(GetBytes(message))).Replace("-", string.Empty);
         }
         
         /// <summary>
@@ -37,7 +37,7 @@ namespace RockPaperScissors
         /// <returns>An array of computed bytes</returns>
         private byte[] GetBytes(string message)
         {
-            return new ASCIIEncoding().GetBytes(message);
+            return Encoding.Default.GetBytes(message);
         }
     }
 }
