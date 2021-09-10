@@ -40,22 +40,22 @@ namespace RockPaperScissors
             {
                 return "Draw!";
             }
-            //
+            //Searches for a index of a computer move
             int compIndex = Array.IndexOf(_availableMoves, ComputerMove);
-            //
+            //Calc are there any win moves are in the head of the array
             int freeMovesCount = compIndex + _availableMoves.Length / 2 - _availableMoves.Length;
-            Console.WriteLine(_availableMoves[compIndex+1]);
-            //
+            
             List<string> winnerMoves = new List<string>(_availableMoves.Length/2);
-
-            //
+            
             if (freeMovesCount >= 0)
             {
+                //get all the win moves from the computer move to the tail
                 for (int i = compIndex + 1; i < _availableMoves.Length  ; i++)
                 {
                     winnerMoves.Add(_availableMoves[i]);
                 }
 
+                //get the rest win moves
                 int j = 0;
                 while (winnerMoves.Count != winnerMoves.Capacity)
                 {
@@ -69,11 +69,6 @@ namespace RockPaperScissors
                 {
                     winnerMoves.Add(_availableMoves[i]);
                 }
-            }
-
-            foreach (var mov in winnerMoves)
-            {
-                Console.WriteLine(mov);
             }
             
             if (winnerMoves.Contains(UserMove))
