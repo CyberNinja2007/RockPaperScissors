@@ -23,23 +23,26 @@ namespace RockPaperScissors
 
                 ProcessHash(encryptor, gameMaster.ComputerMove);
                 
-                PrintMoves(args);
-                
-                Console.WriteLine("Enter your move:");
-
-                string userMove = Console.ReadLine();
-                
-                if (userMove == "0")
+                while (true)
                 {
-                    Environment.Exit(0);
-                }
-                else if(userMove == "?")
-                {
-                    TableGenerator.GenerateTable(args);
-                }
-                else
-                {
-                    gameMaster.UserMove = args[Convert.ToInt32(userMove)-1];
+                    PrintMoves(args);
+                    Console.WriteLine("Enter your move:");
+                    string userMove = Console.ReadLine();
+                    
+                    if (userMove == "0")
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if(userMove == "?")
+                    {
+                        string table = TableGenerator.GenerateTable(args);
+                        Console.WriteLine(table);
+                    }
+                    else
+                    {
+                        gameMaster.UserMove = args[Convert.ToInt32(userMove)-1];
+                        break;
+                    }
                 }
                 
                 Console.WriteLine("Your move: {0}",gameMaster.UserMove);
