@@ -64,7 +64,7 @@ namespace RockPaperScissors
             }
             else
             {
-                for (int i = compIndex + 1; freeMovesCount <= 0  ; freeMovesCount++, i++)
+                for (int i = compIndex + 1; freeMovesCount < 0  ; freeMovesCount++, i++)
                 {
                     winnerMoves.Add(_availableMoves[i]);
                 }
